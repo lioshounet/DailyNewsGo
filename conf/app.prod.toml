@@ -1,0 +1,41 @@
+# Debug开关
+app_name = "thor"
+debug = false
+
+# local-本地
+# production-线上
+env = "local"
+
+[log]
+path = "./log"
+name = "thor.log"
+
+[gin]
+port = ":8903"
+
+[[mysql]]
+dbname = "work_thor"
+port = 4010
+passwd = "dl9c9xVikqo"
+user = "work"
+host = "172.21.0.4"
+
+[[redis]]
+protocol = "tcp"
+name = "thor_cache"
+host = "172.21.0.14"
+port = 4020
+passwd = ""
+db = 0
+
+[ldap]
+name = "thor_ldap"
+host = "172.21.0.13"
+port = 389
+base = "dc=flyaha,dc=top"
+bind_dn = "cn=admin,dc=flyaha,dc=top"
+password = "MhxzKhl@2021"
+user_filter = "(uid=%s)"
+group_filter = "(memberUid=%s)"
+use_ssl = false
+skip_tls = true

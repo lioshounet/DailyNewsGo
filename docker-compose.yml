@@ -1,0 +1,11 @@
+﻿version: "3.7"
+services:
+  thor_app:
+    container_name: "thor_web"
+    build: .
+    image: thor_go:v1.0
+    command: "/apps/thor -a web -c /apps/conf/app.prod.toml"
+    volumes:
+      - "/home/work/apps/thor/log/:/apps/log"
+    ports:
+      - "8903:8903"

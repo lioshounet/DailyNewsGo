@@ -1,0 +1,23 @@
+---
+kind: pipeline
+type: ssh
+name: thor_serv
+server:
+  host:
+    from_secret: apps-host
+  user:
+    from_secret: apps-user
+  password:
+    from_secret: apps-pwd
+
+steps:
+  - name: thor go deploy
+    environment:
+      DRONE_RPC_HOST: 172.21.0.13
+
+    commands:
+      - chmod 755 ./build.sh
+      - sh build.sh
+trigger:
+  branch:
+    - master
